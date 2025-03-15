@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QR Code Generator</title>
+    <title>QR Code</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
@@ -38,50 +37,28 @@
             font-weight: 600;
         }
 
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 1.2rem;
+        p {
+            color: #666;
+            margin: 0.5rem 0;
         }
 
-        label {
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            display: block;
-            text-align: left;
+        a {
+            color: #3498db;
+            text-decoration: none;
+            transition: color 0.3s;
         }
 
-        input[type="text"] {
-            padding: 12px;
-            border: 2px solid #e0e0e0;
+        a:hover {
+            color: #2980b9;
+        }
+
+        img {
+            max-width: 300px;
+            margin: 2rem 0;
             border-radius: 8px;
-            font-size: 16px;
-            width: 100%;
-            box-sizing: border-box;
-            transition: border-color 0.3s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
 
-        input[type="text"]:focus {
-            border-color: #3498db;
-            outline: none;
-        }
-
-        input[type="submit"] {
-            background-color: #3498db;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            padding: 12px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        input[type="submit"]:hover {
-            background-color: #2980b9;
-        }
-        
         .qr-icon {
             font-size: 2.5rem;
             margin-bottom: 1rem;
@@ -89,19 +66,13 @@
         }
     </style>
 </head>
-
 <body>
     <div class="container">
         <div class="qr-icon">📱</div>
-        <h1>QR Code Generator</h1>
-        <form action="/qr/create" method="post">
-            <div>
-                <label for="url">Enter URL to generate QR code</label>
-                <input type="text" id="url" name="url" placeholder="https://example.com" required>
-            </div>
-            <input type="submit" value="Generate QR Code">
-        </form>
+        <h1>Your QR Code is Ready!</h1>
+        <p>Original URL: <a href="{{.URL}}" target="_blank">{{.URL}}</a></p>
+        <img src="{{.QRImageURL}}" alt="QR Code">
+        <p>Direct link to QR image: <a href="{{.QRImageURL}}" target="_blank">View Image</a></p>
     </div>
 </body>
-
-</html>
+</html></div>
